@@ -20,11 +20,11 @@ class Solution {
             if(slow==fast)
             {
                 int count=1;
-                Node temp = slow.next;
-                while(temp!= slow)
+                slow= slow.next;
+                while(slow!=fast)
                 {
                     count++;
-                    temp=temp.next;
+                    slow= slow.next;
                 }
                 return count;
             }

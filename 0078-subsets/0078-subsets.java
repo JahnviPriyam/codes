@@ -1,19 +1,17 @@
 class Solution {
-    public List<Integer> subsetIntegers(int[] nums) {
-        List<Integer> res = new ArrayList<>();
-        int n = nums.length;
-        int total = 1 << n;
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(new ArrayList<>()); 
 
-        for (int mask = 1; mask < total; mask++) {
-            StringBuilder sb = new StringBuilder();
-            for (int j = 0; j < n; j++) {
-                if ((mask & (1 << j)) != 0) {
-                    sb.append(nums[j]);
-                }
+        for (int num : nums) {
+            int size = result.size();
+            for (int i = 0; i < size; i++) {
+                List<Integer> temp = new ArrayList<>(result.get(i));
+                temp.add(num);
+                result.add(temp);
             }
-            res.add(Integer.parseInt(sb.toString()));
         }
 
-        return res;
+        return result;
     }
 }

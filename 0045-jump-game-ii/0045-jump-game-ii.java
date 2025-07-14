@@ -1,18 +1,19 @@
 class Solution {
     public int jump(int[] nums) {
-        int n = nums.length;
-        int position = n - 1;
+        int n= nums.length;
+        int stop = 0;
+        int maxReach = 0;
         int jumps = 0;
-
-        while (position > 0) {
-            for (int i = 0; i < position; i++) {
-                if (i + nums[i] >= position) {
-                    position = i;
-                    jumps++;
-                    break;
-                } 
+        
+        for (int i = 0; i < n-1; i++) {
+            maxReach = Math.max(maxReach, (i + nums[i]));
+            
+            if (i == stop) {
+                jumps++;
+                stop = maxReach;
             }
         }
+        
         return jumps;
     }
 }

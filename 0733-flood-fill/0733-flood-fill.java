@@ -13,12 +13,10 @@ class Solution {
     }
 
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
-        int r= image.length;
-        int c= image[0].length;
+        int r = image.length;
+        int c = image[0].length;
         int oldColor = image[sr][sc];
-        if (oldColor != newColor) {
-            dfs(image, sr, sc, r, c, oldColor, newColor);
-        }
+        dfs(image, sr, sc, r, c, oldColor, newColor);
         return image;
     }
 }

@@ -9,13 +9,18 @@ class Solution {
                 {
                     for(int k=j; k<n-1; k++)
                     {
-                        nums[k]=nums[k+1];
+                        nums[k]= nums[k+1];
                     }
                     n--;
                     j--;
                 }
+                else
+                {
+                    break;
+                }
             }
         }
         return n;
+        
     }
 }

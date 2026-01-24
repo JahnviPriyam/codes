@@ -3,22 +3,23 @@ class Solution {
         int n= nums.length;
         int low=0;
         int high= n-1;
-        while(low<=high)
+        while(low<high)
         {
-            int mid=(low+high)/2;
+            int mid= (low+high)/2;
             if(mid%2==1)
             {
                 mid--;
             }
             if(nums[mid]==nums[mid+1])
             {
-                low=mid+2;
+                low= mid+2;
             }
-            else 
+            else
             {
-                high=mid;
+                high= mid;
             }
         }
         return nums[low];
+        
     }
 }

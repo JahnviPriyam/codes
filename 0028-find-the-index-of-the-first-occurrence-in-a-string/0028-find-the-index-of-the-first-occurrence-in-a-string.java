@@ -1,15 +1,21 @@
 class Solution {
     public int strStr(String haystack, String needle) {
-        int haylen= haystack.length();
-        int needlen= needle.length();
-        for(int i=0; i<=haylen-needlen; i++)
+        char[] h= haystack.toCharArray();
+        char[] n= needle.toCharArray();
+        int h1= h.length;
+        int n1= n.length;
+        for(int i=0; i<=h1-n1; i++)
         {
-            int j=0;
-            while(j<needlen && haystack.charAt(i+j)==needle.charAt(j))
+            int found=1;
+            for(int j=0; j<n1; j++)
             {
-                j++;
+                if(h[i+j]!=n[j])
+                {
+                    found=0;
+                    break;
+                }
             }
-            if(j==needlen)
+            if(found==1)
             {
                 return i;
             }

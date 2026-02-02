@@ -8,29 +8,29 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-import java.math.BigInteger;
-
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        String s1 = "", s2 = "";
+        ListNode dummy = new ListNode(0), curr = dummy;
+        int carry = 0;
 
-        while (l1 != null) {
-            s1 = l1.val + s1;
-            l1 = l1.next;
-        }
-        while (l2 != null) {
-            s2 = l2.val + s2;
-            l2 = l2.next;
+        while (l1 != null || l2 != null || carry != 0) {
+            int sum = carry;
+
+            if (l1 != null) {
+                sum += l1.val;
+                l1 = l1.next;
+            }
+
+            if (l2 != null) {
+                sum += l2.val;
+                l2 = l2.next;
+            }
+
+            curr.next = new ListNode(sum % 10);
+            carry = sum / 10;
+            curr = curr.next;
         }
 
-        String sum = new StringBuilder(new BigInteger(s1).add(new BigInteger(s2)).toString()).reverse().toString();
-        ListNode node = new ListNode(sum.charAt(0) - '0');
-        ListNode head = node;
-        for (int i = 1; i < sum.length(); i++) {
-            node.next = new ListNode(sum.charAt(i) - '0');
-            node = node.next;
-        }
-
-        return head;
+        return dummy.next;
     }
 }

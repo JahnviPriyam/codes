@@ -4,25 +4,21 @@ class Solution {
         if (n == 0) return 0;
 
         Arrays.sort(nums);
+
         int maxLen = 1;
+        int currLen = 1;
 
-        for (int i = 0; i < n; i++) {
-            int[] temp = new int[n];
-            int idx = 0;
-            temp[idx++] = nums[i];
-
-            for (int j = i + 1; j < n; j++) {
-                if (nums[j] == nums[j - 1]) {
-                    continue;
-                }
-                if (nums[j] == nums[j - 1] + 1) {
-                    temp[idx++] = nums[j];
-                } else {
-                    break;
-                }
+        for (int i = 1; i < n; i++) {
+            if (nums[i] == nums[i - 1]) {
+                continue;
             }
-            maxLen = Math.max(maxLen, idx);
+            if (nums[i] == nums[i - 1] + 1) {
+                currLen++;
+            } else {
+                maxLen = Math.max(maxLen, currLen);
+                currLen = 1;
+            }
         }
-        return maxLen;
+        return Math.max(maxLen, currLen);
     }
 }

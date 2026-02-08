@@ -16,15 +16,15 @@ class Solution {
     public Node removeLastNode(Node head) {
         // code here
         Node temp= head;
-        if(head==null||head.next==null)
+        if(temp.next==null)
         {
             return null;
         }
         while(temp.next.next!=null)
         {
-            temp= temp.next;
+            temp=temp.next;
         }
-        temp.next=null;
+        temp.next= null;
         return head;
     }
 }

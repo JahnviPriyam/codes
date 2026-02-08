@@ -15,13 +15,12 @@ class Node
 class Solution {
     public Node deleteHead(Node head) {
         // code here
+        Node temp= head;
         if(head==null)
         {
             return head;
         }
-        Node temp= head;
         head= head.next;
         return head;
-        
     }
 }

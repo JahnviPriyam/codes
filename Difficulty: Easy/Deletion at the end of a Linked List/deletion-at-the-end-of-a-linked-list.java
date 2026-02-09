@@ -24,7 +24,8 @@ class Solution {
         {
             temp=temp.next;
         }
-        temp.next= null;
+        temp.next=null;
         return head;
+        
     }
 }

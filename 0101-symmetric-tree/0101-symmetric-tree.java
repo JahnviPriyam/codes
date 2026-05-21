@@ -4,10 +4,10 @@ class Solution {
             return true;
         }
 
-        return mirror(root.left, root.right);
+        return hehe(root.left, root.right);
     }
 
-    public boolean mirror(TreeNode p, TreeNode q) {
+    public boolean hehe(TreeNode p, TreeNode q) {
         if(p == null && q == null) {
             return true;
         }
@@ -17,7 +17,7 @@ class Solution {
         }
 
         return (p.val == q.val &&
-                mirror(p.left, q.right) &&
-                mirror(p.right, q.left));
+                hehe(p.left, q.right) &&
+                hehe(p.right, q.left));
     }
 }

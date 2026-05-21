@@ -16,8 +16,6 @@ class Solution {
             return false;
         }
 
-        return (p.val == q.val &&
-                hehe(p.left, q.right) &&
-                hehe(p.right, q.left));
+        return (p.val == q.val && hehe(p.left, q.right) && hehe(p.right, q.left));
     }
 }

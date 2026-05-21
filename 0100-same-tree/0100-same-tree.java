@@ -13,25 +13,28 @@
  *     }
  * }
  */
-
 class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
-        List<String> list1 = new ArrayList<>();
-        List<String> list2 = new ArrayList<>();
-        
-        inorder(p, list1);
-        inorder(q, list2);
-        
-        return list1.equals(list2);
-    }
-
-    void inorder(TreeNode node, List<String> list) {
-        if (node == null) {
-            list.add("null");
-            return;
+        if(p==null && q== null)
+        {
+            return true;
         }
-        inorder(node.left, list);
-        list.add(String.valueOf(node.val));
-        inorder(node.right, list);
+        else if(p==null || q== null)
+        {
+            return false;
+        }
+        if(p.val!=q.val)
+        {
+            return false;
+        }
+        else if(isSameTree(p.left, q.left) && isSameTree(p.right, q.right))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
     }
 }

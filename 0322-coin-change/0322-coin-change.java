@@ -19,7 +19,7 @@ class Solution {
                 }
             }
         }
-        if (dp[n][m] >=inf) {
+        if (dp[n][m] >= inf) {
             return -1;
         }
         return dp[n][m];
